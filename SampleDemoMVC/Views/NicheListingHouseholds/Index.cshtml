@@ -1,0 +1,113 @@
+﻿@model IEnumerable<SampleDemoMVC.Models.NicheListingHousehold>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.HouseholdId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HasPregnantWomanId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HasEligibleChildrenId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PregnantWomenNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EligibleChildrenNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StatusId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EnumeratorId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RegistrationEnumeratorId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SubmittedOn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Longitude)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Latitude)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RejectionReasonId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OtherRejectionReason)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ApprovalNotes)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.HouseholdId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HasPregnantWomanId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HasEligibleChildrenId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PregnantWomenNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EligibleChildrenNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StatusId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EnumeratorId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RegistrationEnumeratorId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SubmittedOn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Longitude)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Latitude)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RejectionReasonId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OtherRejectionReason)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ApprovalNotes)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

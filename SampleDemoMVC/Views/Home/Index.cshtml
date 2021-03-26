@@ -1,0 +1,98 @@
+﻿@model SampleDemoMVC.Models.ListedHouseholdsViewModel
+@{
+    ViewData["Title"] = "Home Page";
+    Layout = "_Layout";
+}
+<form asp-action="Index" class="form-paginated">
+    <div class="text-danger"></div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label class="control-label">Constituency</label>
+                <select asp-for="ConstituencyId" class="form-control" asp-items=" ViewBag.ConstituencyId">
+                    <option value="">Select</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label class="control-label">Programme Name</label>
+                <select asp-for="ProgrammeId" class="form-control" asp-items="ViewBag.ProgrammeId">
+                    <option value="">Select</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label class="control-label">Member Role</label>
+                <select asp-for="MemberRoleId" class="form-control" asp-items=" ViewBag.MemberRoleId">
+                    <option value="">Select</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label class="control-label">Relationship</label>
+                <select asp-for="RelationshipId" class="form-control" asp-items="ViewBag.RelationshipId">
+                    <option value="">Select</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label class="control-label">Gender</label>
+                <select asp-for="SexId" class="form-control" asp-items=" ViewBag.SexId">
+                    <option value="">Select</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label class="control-label">National ID No</label>
+                <input asp-for="NationalIdNo" class="form-control" />
+                <span asp-validation-for="NationalIdNo" class="text-danger"></span>
+            </div>
+        </div>
+       
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+            <button type="submit" class="btn btn-success btn-filter btn-block  btn-sm">
+                <i class="fa fa-filter"></i> Filter
+            </button>
+            <button type="button" class="btn btn-default btn-sm btn-reset btn-block">
+                <i class="fa fa-eraser"></i> Clear
+            </button>
+        </div>
+    </div>
+</form>
+<div class="table-responsive">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.NSNPHouseholdNo)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ProgrammeId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PhoneNumber)
+                </th>
+              
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+           
+        </tbody>
+    </table>
+
+</div>
+<div style="height:600px;width:auto">
+        <bold-report-viewer id="viewer" report-path="/DemoReports/CustomActiveHouseHOldMembers4.rdl" report-service-url="api/ReportViewer" processing-mode="Remote"  report-server-url="http://197.232.65.10:2026/Reports/browse/" parameters="ViewBag.parameters" ></bold-report-viewer>
+    </div>
